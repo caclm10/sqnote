@@ -1,0 +1,106 @@
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+	--color-body: var(--color-zinc-100);
+	--color-on-body: var(--color-zinc-900);
+
+	--color-card: var(--color-zinc-50);
+	--color-border: var(--color-zinc-200);
+	--color-input: var(--color-zinc-400);
+	--color-muted: var(--color-zinc-500);
+
+	--color-primary: var(--color-violet-600);
+	--color-on-primary: var(--color-violet-50);
+
+	--color-error: var(--color-red-600);
+	--color-on-error: var(--color-red-50);
+}
+
+@theme {
+	--font-sans:
+		"Montserrat", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--radius-default: 0.7rem;
+}
+
+@layer base {
+	.dark {
+		--color-body: var(--color-zinc-900);
+		--color-on-body: var(--color-zinc-100);
+
+		--color-card: var(--color-zinc-950);
+		--color-border: var(--color-zinc-800);
+		--color-input: var(--color-zinc-600);
+		--color-muted: var(--color-zinc-500);
+	}
+}
+
+@layer base {
+	* {
+		border-color: var(--color-border);
+	}
+
+	body {
+		background-color: var(--color-body);
+		color: var(--color-on-body);
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		overflow-x: hidden;
+	}
+
+	.Root {
+		isolation: isolate;
+	}
+}
+
+@utility container {
+	margin-inline: auto;
+	padding-inline: 1rem;
+
+	@variant 2xl {
+		max-width: 1440px;
+	}
+}
+
+.ce-block__content,
+.ce-toolbar__content {
+	max-width: 100%;
+	margin-inline: 0;
+}
+
+.ce-toolbar__plus,
+.ce-toolbar__settings-btn {
+	color: var(--color-on-body);
+
+	@variant hover {
+		background-color: --alpha(var(--color-on-body) / 7%);
+	}
+}
+
+.ce-popover {
+	--color-border: var(--color-zinc-200);
+	--color-background: var(--color-card);
+	--color-text-primary: var(--color-on-body);
+	--color-background-item-hover: --alpha(var(--color-text-primary) / 7%);
+
+	@variant dark {
+		--color-border: var(--color-zinc-800);
+	}
+}
+
+.cdx-search-field {
+	background-color: var(--color-body);
+}
+
+.cdx-search-field__input {
+	color: var(--color-text-primary);
+}

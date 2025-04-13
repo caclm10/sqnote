@@ -84,6 +84,11 @@
 	@variant hover {
 		background-color: --alpha(var(--color-on-body) / 7%);
 	}
+
+	@media (max-width: 650px) {
+		background-color: var(--color-body);
+		border-color: var(--color-border);
+	}
 }
 
 .ce-popover {

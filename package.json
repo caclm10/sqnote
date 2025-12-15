@@ -7,7 +7,8 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"preview": "vite preview",
+		"preview": "vite preview --port 8080 --host",
+  		"start": "npm run preview",
 		"generate-pwa-assets": "pwa-assets-generator --preset minimal-2023 public/logo.svg"
 	},
 	"dependencies": {
